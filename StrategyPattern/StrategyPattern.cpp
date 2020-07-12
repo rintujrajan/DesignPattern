@@ -58,5 +58,7 @@ int main()
 	cout << "\nA rubber duck's behavior after behavior change:\n";
 	callDuck(duck);
 
+	cin.get();
+
 	return 0;
 }
