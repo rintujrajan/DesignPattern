@@ -1,0 +1,4 @@
+/StrategyPattern/.vscode/Build/*.obj
+/StrategyPattern/.vscode/Build/*.exe
+/StrategyPattern/.vscode/Build/*.ilk
+/StrategyPattern/.vscode/Build/*.pdb

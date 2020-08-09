@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <iostream>
 class IBeverage
 {
 public:
@@ -16,4 +17,3 @@ public:
 	virtual void setBeverageSize(BeverageSizes size) = 0;
 	virtual BeverageSizes getBeverageSize() = 0;
 };
-
