@@ -1,0 +1,33 @@
+    {
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "Build Command Pattern Example",
+            "command": "cl.exe",
+            "args": [
+                "/Zi",
+                "/EHsc",
+                "${cwd}\\*.cpp",
+                "${cwd}\\Appliances\\*.cpp",
+                "${cwd}\\Commands\\*.cpp",
+                "/Fe:",
+                "${fileDirname}\\.vscode\\Build\\CommandPatternMain.exe",
+                "/Fo:",
+                "${fileDirname}\\.vscode\\Build\\",
+                "/Fd:",
+                "${fileDirname}\\.vscode\\Build\\"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
