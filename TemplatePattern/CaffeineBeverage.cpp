@@ -21,7 +21,7 @@ void CaffeineBeverage::prepareBeverage()
 }
 void CaffeineBeverage::boilWater()
 {
-    std::cout<<"Boling water for 3 minutes at 300 degrees\n";
+    std::cout<<"Boiling water for 3 minutes at 300 degrees\n";
 }
 void CaffeineBeverage::pourInCup()
 {

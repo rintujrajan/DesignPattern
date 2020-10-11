@@ -5,8 +5,8 @@ class CaffeineBeverage
 protected:
     bool isCondimentsAdded;
 public:
-    // The template method. It is amrked as final so that derived class canot override the function
-    // This contains the algoithm to prepare a Caffeine beverage
+    // The template method. It is marked as final so that derived class canot override the function
+    // This contains the algorithm to prepare a Caffeine beverage
     virtual void prepareBeverage() final;
 
     /* 

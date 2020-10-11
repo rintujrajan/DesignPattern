@@ -2,7 +2,7 @@
 #include "Tea.h"
 #include "Coffee.h"
 /*
-    The Template Method Pattern defi nes the skeleton of an algorithm in a method,
+    The Template Method Pattern defines the skeleton of an algorithm in a method,
     deferring some steps to subclasses. Template Method lets subclasses redefine
     certain steps of an algorithm without changing the algorithm’s structure.
 
@@ -19,7 +19,7 @@
     In our example, the algorithm is about creating two different Caffeinated beverages.
     The steps to create the beverages - tea and coffee is the algorithm.
     Parts of the algorithm are common for creating them and some are different
-    The algotithm for it is inside the prepareBeverage method called from herein
+    The algorithm for it is inside the prepareBeverage method called from herein
     Each class has to fill in for the specific parts
 */
 
