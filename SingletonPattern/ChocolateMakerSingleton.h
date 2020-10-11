@@ -4,12 +4,7 @@
 class ChocolateMakerSingleton
 {
     private:
-    ChocolateMakerSingleton() = delete;
     ChocolateMakerSingleton(std::string threadName);
-    ChocolateMakerSingleton(const ChocolateMakerSingleton&) = delete;
-    ChocolateMakerSingleton& operator=(const ChocolateMakerSingleton&) = delete;
-    ChocolateMakerSingleton(ChocolateMakerSingleton&&) = delete;
-    ChocolateMakerSingleton& operator==(ChocolateMakerSingleton&&) = delete;
     ~ChocolateMakerSingleton();
     static std::string getThreadName();
     static void setThreadName(std::string);
@@ -41,4 +36,14 @@ class ChocolateMakerSingleton
     void fill();
     void boil();
     void drain();
+
+    /* 
+    Note: Scott Meyers mentions in his Effective Modern C++ book, that deleted functions should generally be public,
+          as it results in better error messages due to the compilers behavior to check accessibility before deleted status
+    */
+    ChocolateMakerSingleton() = delete;
+    ChocolateMakerSingleton(const ChocolateMakerSingleton&) = delete;
+    ChocolateMakerSingleton& operator=(const ChocolateMakerSingleton&) = delete;
+    ChocolateMakerSingleton(ChocolateMakerSingleton&&) = delete;
+    ChocolateMakerSingleton& operator==(ChocolateMakerSingleton&&) = delete;
 };

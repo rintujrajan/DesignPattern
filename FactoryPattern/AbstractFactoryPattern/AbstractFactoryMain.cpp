@@ -2,15 +2,15 @@
 #include "NYPizzaStore.h"
 #include "ChicagoPizzaStore.h"
 /*
-	The difference between the factory method pattern exmaple and the current example is two fold
+	The difference between the factory method pattern example and the current example is two fold
 	1. In Factory Method pattern, ingredients used in the concrete Pizza/Product classes were hard coded, 
 		and hence for each PizzaStore there had to separate concrete Pizzas/Products even though they were of same type
 		E.g. NYPizzaStore for Cheese Pizza has NYCheesePizza class ChicagoPizzaStore for Cheese Pizza has ChicagoCheesePizza class
 		In current example each concrete Pizza/Product class has a factory which it utilizes to get the concrete products to make the pizza
-	2.The PizzaStore concrete creator classes make use of correponding Concrete Ingredient Factory
+	2.The PizzaStore concrete creator classes make use of corresponding Concrete Ingredient Factory
 	    and pass it onto the concrete Pizza/Product constructors.
 
-	The Factory Method used inheritance for object creation while the Abract Factory uses composition
+	The Factory Method used inheritance for object creation while the Abstract Factory uses composition
 
 */
 
