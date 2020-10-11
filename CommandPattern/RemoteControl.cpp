@@ -6,6 +6,9 @@
 RemoteControl::RemoteControl()
 {
     ICommand *noCommand = new NoCommand();
+    /*
+        In the remote control, we didn’t want to check to see if a command was loaded every time we referenced a slot.
+    */
     for (int i = 0; i < 10; i++)
     {
         onCommand[i] = noCommand;
@@ -34,6 +37,13 @@ void RemoteControl::setCommand(int slot ,ICommand* onCommand, ICommand* offComma
 void RemoteControl::onButtonPushed(int slot)
 {
     std::cout<<"-----Button On pushed on slot "<< slot << "-----\n";
+    /* 
+       The command object provides one method, execute(),
+       that encapsulates the actions(on/off) and can be called to invoke the actions on the Receiver(Light/Fan).
+
+       At some point in the future the Invoker(Remote Control) calls the command object’s execute() method... 
+       which results in the actions(on/off) being invoked on the Receiver(Light/Fan).
+    */
     this->onCommand[slot]->execute();
     lastExecutedCommand = this->onCommand[slot];
 }
