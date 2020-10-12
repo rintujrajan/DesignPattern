@@ -1,4 +1,8 @@
 #pragma once
+
+/*
+    The Target is the Duck class. This is what the client invokes method on
+*/
 class IDuck
 {
 
