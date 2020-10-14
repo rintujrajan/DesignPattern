@@ -8,6 +8,8 @@ RemoteControl::RemoteControl()
     ICommand *noCommand = new NoCommand();
     /*
         In the remote control, we didn’t want to check to see if a command was loaded every time we referenced a slot.
+        So, how do we get around that? Implement a command that does nothing!
+        In our RemoteControl constructor, we assign every slot a NoCommand object by default and we know we’ll always have some command to call in each slot.
     */
     for (int i = 0; i < 10; i++)
     {
