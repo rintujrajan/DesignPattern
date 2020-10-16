@@ -26,7 +26,13 @@ void DinerMenu::addItem(std::string name, std::string description,bool vegetaria
     numberOfItems++;
 }
 
-IIterator* DinerMenu::createIterator()
+/*
+    Each ConcreteAggregate is responsible for instantiating a ConcreteIterator that can iterate over its collection of objects.
+    DinerMenu implements the IMenu interface, which means it need to implement the createIterator() method.
+*/
+IIterator* DinerMenu::createIterator() //similar to begin() in std Iterators
 {
+    // initializes the iterator with zeroeth index of the aggregate 
+    // The ConcreteAggregate has a collection of objects and implements the method that returns an Iterator for its collection.
     return new DinerMenuIterator(menuItems, numberOfItems);
 }

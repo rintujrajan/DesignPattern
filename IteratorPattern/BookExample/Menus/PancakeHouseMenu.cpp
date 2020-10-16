@@ -24,7 +24,13 @@ void PancakeHouseMenu::addItem(std::string name, std::string description,bool ve
     menuItems.push_back(menuItem);
 }
 
-IIterator* PancakeHouseMenu::createIterator()
+/*
+    Each ConcreteAggregate is responsible for instantiating a ConcreteIterator that can iterate over its collection of objects.
+    PancakeHouseMenu implements the IMenu interface, which means it need to implement the createIterator() method.
+*/
+IIterator* PancakeHouseMenu::createIterator() //similar to begin() in std Iterators
 {
+    // initializes the iterator with zeroeth index of the aggregate
+    // The ConcreteAggregate has a collection of objects and implements the method that returns an Iterator for its collection.
     return new PancakeHouseMenuIterator(menuItems);
 }

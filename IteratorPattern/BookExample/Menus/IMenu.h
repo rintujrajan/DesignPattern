@@ -2,7 +2,10 @@
 #include <string>
 
 class IIterator;
-
+/*
+    Having a common interface for the aggregates is handy for the client;
+    it decouples the client from the implementation of the collection of objects
+*/
 class IMenu
 {
 public:
