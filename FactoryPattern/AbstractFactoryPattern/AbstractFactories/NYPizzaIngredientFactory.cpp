@@ -1,7 +1,7 @@
 #include "NYPizzaIngredientFactory.h"
-#include "ThinCrustDough.h"
-#include "MarianaSauce.h"
-#include "ReggianoCheese.h"
+#include "Ingredients\Dough\ThinCrustDough.h"
+#include "Ingredients\Sauce\MarianaSauce.h"
+#include "Ingredients\Cheese\ReggianoCheese.h"
 #include <iostream>
 
 NYPizzaIngredientFactory::NYPizzaIngredientFactory()

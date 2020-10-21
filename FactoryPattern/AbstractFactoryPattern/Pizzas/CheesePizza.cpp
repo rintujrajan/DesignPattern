@@ -1,12 +1,12 @@
 #include "CheesePizza.h"
 
 #include <iostream>
-#include "PizzaIngredientFactory.h"
+#include "..\AbstractFactories\PizzaIngredientFactory.h"
 
 CheesePizza::CheesePizza(PizzaIngredientFactory* factory)
 {
 	localFactory = factory;
-	pizzaName = "Cheeze Pizza with ingredients from " + factory->getName();
+	pizzaName = "Cheese Pizza with ingredients from " + factory->getName();
 }
 
 void CheesePizza::prepare()

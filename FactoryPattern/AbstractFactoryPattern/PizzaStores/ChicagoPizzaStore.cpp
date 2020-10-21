@@ -1,9 +1,9 @@
 #include <iostream>
 
 #include "ChicagoPizzaStore.h"
-#include "CheesePizza.h"
-#include "PepperoniPizza.h"
-#include "ChicagoPizzaIngredientFactory.h"
+#include "..\Pizzas\CheesePizza.h"
+#include "..\Pizzas\PepperoniPizza.h"
+#include "..\AbstractFactories\ChicagoPizzaIngredientFactory.h"
 
 PizzaBase* ChicagoPizzaStore::createPizza(std::string type)
 {

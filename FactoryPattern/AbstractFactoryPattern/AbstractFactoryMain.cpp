@@ -1,6 +1,6 @@
 #include <iostream>
-#include "NYPizzaStore.h"
-#include "ChicagoPizzaStore.h"
+#include "PizzaStores\NYPizzaStore.h"
+#include "PizzaStores\ChicagoPizzaStore.h"
 /*
 	The difference between the factory method pattern example and the current example is two fold
 	1. In Factory Method pattern, ingredients used in the concrete Pizza/Product classes were hard coded, 

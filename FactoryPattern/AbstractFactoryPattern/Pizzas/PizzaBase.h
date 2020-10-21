@@ -3,9 +3,9 @@
 #include <vector>
 #include <string>
 
-#include "DoughBase.h"
-#include "SauceBase.h"
-#include "CheeseBase.h"
+#include "..\AbstractFactories\Ingredients\Dough\DoughBase.h"
+#include "..\AbstractFactories\Ingredients\Sauce\SauceBase.h"
+#include "..\AbstractFactories\Ingredients\Cheese\CheeseBase.h"
 /*
 	The clients of the Abstract Factory are the concrete instances of the PizzaBase class.
 */

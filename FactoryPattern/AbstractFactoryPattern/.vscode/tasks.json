@@ -3,12 +3,18 @@
     "tasks": [
         {
             "type": "shell",
-            "label": "Build Simple Factory Example",
+            "label": "Build Abstract Factory Example",
             "command": "cl.exe",
             "args": [
                 "/Zi",
                 "/EHsc",
-                "*.cpp",
+                "${cwd}\\*.cpp",
+                "${cwd}\\Pizzas\\*.cpp",
+                "${cwd}\\PizzaStores\\*.cpp",
+                "${cwd}\\AbstractFactories\\*.cpp",
+                "${cwd}\\AbstractFactories\\Ingredients\\Cheese\\*.cpp",
+                "${cwd}\\AbstractFactories\\Ingredients\\Dough\\*.cpp",
+                "${cwd}\\AbstractFactories\\Ingredients\\Sauce\\*.cpp",
                 "/Fe:",
                 "${fileDirname}\\.vscode\\Build\\AbstractFactoryMain.exe",
                 "/Fo:",

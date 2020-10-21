@@ -1,7 +1,7 @@
 #include "ChicagoPizzaIngredientFactory.h"
-#include "ThickCrustDough.h"
-#include "MozzarellaCheese.h"
-#include "PlumTomatoSauce.h"
+#include "Ingredients\Dough\ThickCrustDough.h"
+#include "Ingredients\Cheese\MozzarellaCheese.h"
+#include "Ingredients\Sauce\PlumTomatoSauce.h"
 #include <iostream>
 
 ChicagoPizzaIngredientFactory::ChicagoPizzaIngredientFactory()

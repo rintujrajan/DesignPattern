@@ -1,7 +1,6 @@
 #include "PizzaStore.h"
 #include <iostream>
-#include "CheesePizza.h"
-
+#include "..\Pizzas\PizzaBase.h"
 /* 
 	Dependency inversion principle - Depend upon abstractions. Do not depend upon concrete classes.
    	High-level components should not depend on our low-level components; rather, they should both depend on abstractions.
@@ -20,7 +19,7 @@ PizzaBase* PizzaStore::orderPizza(std::string pizzaType)
 	PizzaBase* pizza = NULL;
 
 	/* 
-	The entire comment is as of teh Factory menthod since we are using the same cocpet:
+	The entire comment is as of teh Factory method since we are using the same concept:
 
 	The Factory Method Pattern defines an interface for creating an object,
 	but lets subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses
@@ -32,7 +31,7 @@ PizzaBase* PizzaStore::orderPizza(std::string pizzaType)
 	In our current code:
 	The Abstract Creator - PizzaStore gives an interface with a method - "createPizza" for creating objects.
 	The createPizza function is not defined in the PizzaStore class, 
-	but individial concrete creator classes inheriting from PizzaStore have to implement it
+	but individual concrete creator classes inheriting from PizzaStore have to implement it
 	And these individual concrete creator classes would create concrete products(Pizzas in our case)
 	*/
 
@@ -44,12 +43,12 @@ PizzaBase* PizzaStore::orderPizza(std::string pizzaType)
 		pizza->bake();
 		pizza->cut();
 		pizza->box();
-		// The insertion opearor for PizzaBase is overloaded to output pizza details
+		// The insertion operator for PizzaBase is overloaded to output pizza details
 		std::cout<<pizza;
 	}
 	else
 	{
-		std::cout<<"Pizza could not be delieverd!\n";		
+		std::cout<<"Pizza could not be delivered!\n";		
 	}
 	
 	return pizza;
