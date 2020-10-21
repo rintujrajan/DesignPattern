@@ -1,6 +1,6 @@
 #include "PizzaStore.h"
 #include <iostream>
-#include "PizzaBase.h"
+#include "../Pizzas/PizzaBase.h"
 
 /* 
 	Dependency inversion principle - Depend upon abstractions. Do not depend upon concrete classes.
@@ -30,7 +30,7 @@ PizzaBase* PizzaStore::orderPizza(std::string pizzaType)
 	In our current code:
 	The Abstract Creator - PizzaStore gives an interface with a method - "createPizza" for creating objects.
 	The createPizza function is not defined in the PizzaStore class, 
-	but individial concrete creator classes inheriting from PizzaStore have to implement it
+	but individual concrete creator classes inheriting from PizzaStore have to implement it
 	And these individual concrete creator classes would create concrete products(Pizzas in our case)
 	*/
 
@@ -46,7 +46,7 @@ PizzaBase* PizzaStore::orderPizza(std::string pizzaType)
 	}
 	else
 	{
-		std::cout<<"Pizza could not be delieverd!\n";		
+		std::cout<<"Pizza could not be delivered!\n";		
 	}
 	
 	return pizza;

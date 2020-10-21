@@ -1,10 +1,10 @@
 #pragma once
 
 #include "PizzaBase.h"
-class NYCheezePizza :
+class NYCheesePizza :
 	public PizzaBase
 {
 	public:
-		NYCheezePizza();
+		NYCheesePizza();
 };
 

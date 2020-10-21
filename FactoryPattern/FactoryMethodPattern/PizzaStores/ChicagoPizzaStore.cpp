@@ -1,15 +1,15 @@
 #include <iostream>
 
 #include "ChicagoPizzaStore.h"
-#include "ChicagoPepperoniPizza.h"
-#include "ChicagoCheezePizza.h"
+#include "../Pizzas/ChicagoPepperoniPizza.h"
+#include "../Pizzas/ChicagoCheesePizza.h"
 
 PizzaBase* ChicagoPizzaStore::createPizza(std::string type)
 {
 	std::cout << type+" pizza ordered at Chicago Pizza Store\n";
-	if (type == "Cheeze")
+	if (type == "Cheese")
 	{
-		return new ChicagoCheezePizza();
+		return new ChicagoCheesePizza();
 	}
 	else if (type == "Pepperoni")
 	{

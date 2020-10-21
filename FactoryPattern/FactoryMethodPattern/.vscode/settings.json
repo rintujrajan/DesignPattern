@@ -45,5 +45,10 @@
         "deque": "cpp",
         "stack": "cpp",
         "vector": "cpp"
-    }
+    },
+    "cSpell.words": [
+        "Cheese",
+        "Parallelly",
+        "delieverd"
+    ]
 }

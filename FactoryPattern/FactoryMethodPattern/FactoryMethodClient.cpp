@@ -1,5 +1,5 @@
-#include "NYPizzaStore.h"
-#include "ChicagoPizzaStore.h"
+#include "PizzaStores/NYPizzaStore.h"
+#include "PizzaStores/ChicagoPizzaStore.h"
 #include <iostream>
 
 /*
@@ -35,7 +35,7 @@ int main()
 {
 
 	PizzaStore* newYorkPizzaStoreInstance = new NYPizzaStore();
-	newYorkPizzaStoreInstance->orderPizza("Cheeze");
+	newYorkPizzaStoreInstance->orderPizza("Cheese");
 
 	std::cout<<"\n***************\n\n";
 

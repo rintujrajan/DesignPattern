@@ -8,7 +8,9 @@
             "args": [
                 "/Zi",
                 "/EHsc",
-                "*.cpp",
+                "${cwd}\\*.cpp",
+                "${cwd}\\Pizzas\\*.cpp",
+                "${cwd}\\PizzaStores\\*.cpp",
                 "/Fe:",
                 "${fileDirname}\\.vscode\\Build\\FactoryMethodPattern.exe",
                 "/Fo:",

@@ -1,21 +1,21 @@
-#include "ChicagoCheezePizza.h"
+#include "ChicagoCheesePizza.h"
 #include <iostream>
 
-ChicagoCheezePizza::ChicagoCheezePizza()
+ChicagoCheesePizza::ChicagoCheesePizza()
 {
-	std::cout << "Setting Chicago Cheeze Pizza Ingredients..\n";
-	pizzaName = "Chicago style Cheeze";
+	std::cout << "Setting Chicago Cheese Pizza Ingredients..\n";
+	pizzaName = "Chicago style Cheese";
 	dough = "Thick Crust Dough";
 	sauce = "Chunky Tomato Sauce";
 	vecToppings.push_back("Double Shredded Mozzarella Cheese");
 	vecToppings.push_back("Farm fresh Pepperoni");
 }
-void ChicagoCheezePizza::bake()
+void ChicagoCheesePizza::bake()
 {
 	std::cout << "Baking different from base Pizza template. Baking pizza for 15 mins at 400!\n";
 }
 
-void ChicagoCheezePizza::cut()
+void ChicagoCheesePizza::cut()
 {
 	std::cout << "Cutting different from base Pizza template. Cutting pizza into square sizes!\n";
 }

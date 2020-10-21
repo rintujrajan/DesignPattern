@@ -1,13 +1,13 @@
 #pragma once
 
 #include "PizzaBase.h"
-class ChicagoCheezePizza :
+class ChicagoCheesePizza :
 	public PizzaBase
 {
 	private:
 		void bake();
 		void cut();
 	public:
-		ChicagoCheezePizza();
+		ChicagoCheesePizza();
 };
 

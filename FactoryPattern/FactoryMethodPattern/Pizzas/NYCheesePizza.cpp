@@ -1,10 +1,10 @@
-#include "NYCheezePizza.h"
+#include "NYCheesePizza.h"
 #include <iostream>
 
-NYCheezePizza::NYCheezePizza()
+NYCheesePizza::NYCheesePizza()
 {
-	std::cout << "Setting NY Cheeze Pizza Ingredients..\n";
-	pizzaName = "NY style Cheeze";
+	std::cout << "Setting NY Cheese Pizza Ingredients..\n";
+	pizzaName = "NY style Cheese";
 	dough = "Thin Crust Dough";
 	sauce = "Marinara Sauce";
 	vecToppings.push_back("Double Grated Reggiano Cheese");
