@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "Build State Pattern Example",
+            "command": "cl.exe",
+            "args": [
+                "/Zi",
+                "/EHsc",
+                "${cwd}\\*.cpp",
+                "${cwd}\\States\\*.cpp",
+                "/Fe:",
+                "${fileDirname}\\.vscode\\Build\\StatePattern.exe",
+                "/Fo:",
+                "${fileDirname}\\.vscode\\Build\\",
+                "/Fd:",
+                "${fileDirname}\\.vscode\\Build\\"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
