@@ -13,7 +13,7 @@
     while subclasses provide some part of the implementation.
 
     The Strategy and Template Method Patterns both encapsulate algorithms,
-    one by inheritance and one by composition.
+    one by composition and one by inheritance.
     The Factory Method is a specialization of Template Method.
 
     In our example, the algorithm is about creating two different Caffeinated beverages.
