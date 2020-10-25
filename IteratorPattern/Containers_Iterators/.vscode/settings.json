@@ -50,6 +50,9 @@
         "iomanip": "cpp",
         "ctime": "cpp",
         "xlocmon": "cpp",
-        "xloctime": "cpp"
+        "xloctime": "cpp",
+        "list": "cpp",
+        "set": "cpp",
+        "xtree": "cpp"
     }
 }

@@ -1,7 +1,8 @@
 #include <iostream>
 #include "MyVector.h"
-#include <vector>
-int main()
+#include "MyUnorderedMultiSet.h"
+
+void customVector()
 {
     MyVector<int> myVec(6);
     for (int i = 0; i < 9; i++)
@@ -37,7 +38,27 @@ int main()
     {
         std::cout<< i <<" ";   
     }
-     
+}
+
+void customUnorderedSet()
+{
+    MyUnorderedMultiSet<int> uSet({20,10,30,20});
+    size_t bucketsUsed =  uSet.bucket_count();
+    // MyUnorderedMultiSet<int>::Iterator it = uSet.begin(0);
+    // for(size_t i = 0; i < bucketsUsed;++i)
+    // {
+    //     for(it = uSet.begin(i); it != uSet.end(i); it++)
+    //     {
+    //         std::cout<<"Check";
+    //     }
+    // }
+
+}
+
+int main()
+{
+    // customVector();
+    customUnorderedSet();
     
     std::cin.get();
 
