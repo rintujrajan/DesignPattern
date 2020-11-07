@@ -12,6 +12,9 @@ public:
 	void measurementsChanged();
 	void setMeasurements(float temperature, float humidity, float pressure);
 
+	//default copy constructors and assignment operators deleted so that they are not used by mistake
+	WeatherData(const WeatherData&) = delete;
+	WeatherData& operator =(const WeatherData&) = delete;
 private:
 	std::vector<IObserver*> observers;
 	float temperature;

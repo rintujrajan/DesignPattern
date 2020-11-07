@@ -31,8 +31,8 @@ std::string AverageConditionsDisplay::getDescription()
 
 void AverageConditionsDisplay::display()
 {
-	std::cout << "\nAverage conditions :"
-		<< "\n\tAverage Temperature : " << totalTemperature/countOfData
+	std::cout << "\nAverage conditions Display:"
+		<< "\n\tAverage Temperature : " << totalTemperature /countOfData
 		<< "\n\tAverage Humidity    : " << totalHumidity / countOfData
 		<< "\n\tAverage Pressure    : " << totalPressure / countOfData;
 }

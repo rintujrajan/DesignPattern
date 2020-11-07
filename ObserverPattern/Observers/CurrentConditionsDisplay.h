@@ -15,6 +15,10 @@ public:
 	void display() override;
 	void removeFromObserving();
 
+	//default copy constructors and assignment operators deleted so that they are not used by mistake
+	CurrentConditionsDisplay(const CurrentConditionsDisplay&) = delete;
+	CurrentConditionsDisplay& operator =(const CurrentConditionsDisplay&) = delete;
+
 private:
 	float temperature;
 	float humidity;

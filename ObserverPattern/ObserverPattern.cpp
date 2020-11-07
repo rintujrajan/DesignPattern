@@ -80,4 +80,8 @@ int main()
 	weatherData->setMeasurements(500, 1000, 1500);
 
 	std::cin.get();
+
+	delete weatherData;
+	delete currentconditionsDisplay;
+	delete averageConditionsDisplay;
 }

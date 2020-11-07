@@ -14,6 +14,10 @@ public:
 	std::string getDescription() override;
 	void display() override;
 	void removeFromObserving();
+
+	//default copy constructors and assignment operators deleted so that they are not used by mistake
+	AverageConditionsDisplay(const AverageConditionsDisplay&) = delete;
+	AverageConditionsDisplay& operator =(const AverageConditionsDisplay&) = delete;
 private:
 	float totalTemperature;
 	float totalHumidity;

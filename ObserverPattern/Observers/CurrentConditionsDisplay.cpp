@@ -31,7 +31,7 @@ std::string CurrentConditionsDisplay::getDescription()
 
 void CurrentConditionsDisplay::display()
 {
-	std::cout << "\nCurrent conditions :"
+	std::cout << "\nCurrent conditions Display:"
 		<< "\n\tTemperature : " << temperature
 		<< "\n\tHumidity    : " << humidity
 		<< "\n\tPressure    : " << pressure;
