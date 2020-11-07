@@ -35,9 +35,9 @@ void WeatherData::notifyObservers()
 		{
 			std::cout<< "\t" <<it+1 << ". " << observers[it]->getDescription()<<"\n";
 		}
+		std::cout<<"Updating the observer(s)...\n";
 		for (auto observer : observers)
 		{
-			std::cout<<"Updating the observer(s)...\n";
 			observer->update(temperature, humidity, pressure);
 		}	
 	}
