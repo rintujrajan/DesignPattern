@@ -1,5 +1,7 @@
 #pragma once
-#include "IObserver.h"
+
+class IObserver;
+
 class ISubject
 {
 public:

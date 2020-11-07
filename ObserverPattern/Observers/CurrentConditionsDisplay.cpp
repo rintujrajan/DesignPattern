@@ -1,4 +1,5 @@
 #include "CurrentConditionsDisplay.h"
+#include "..\Subjects\ISubject.h"
 #include <iostream>
 
 

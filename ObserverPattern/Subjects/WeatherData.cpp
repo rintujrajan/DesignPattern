@@ -1,12 +1,10 @@
 #include "WeatherData.h"
+#include "..\Observers\IObserver.h"
 #include <iostream>
-#include <sstream>
+#include <string>
 
 WeatherData::WeatherData():
-	temperature(0), humidity(0), pressure(0)
-{
-
-}
+	temperature(0), humidity(0), pressure(0) { }
 
 void WeatherData::registerObserver(IObserver* observer)
 {
@@ -27,18 +25,16 @@ void WeatherData::notifyObservers()
 {
 	if (observers.empty())
 	{
-		std::cout << "\nNo observers found!";
+		std::cout << "No observers found!";
 		return;
 	}
 	else
 	{
-		std::stringstream ss;
-		ss<< observers.size(); //using string stream to put the size_t type in a stream
-		std::cout << "\n" + ss.str()+ " observer(s) found!";
-	}
-	for (auto observer : observers)
-	{
-		observer->update(temperature, humidity, pressure);
+		std::cout << std::to_string(observers.size()) + " observer(s) found!";
+		for (auto observer : observers)
+		{
+			observer->update(temperature, humidity, pressure);
+		}	
 	}
 }
 
@@ -49,6 +45,9 @@ void WeatherData::measurementsChanged()
 
 void WeatherData::setMeasurements(float temperature, float humidity, float pressure)
 {
+	std::cout<<"\n\nWeather measurements have changed (Temp: "<< temperature 
+				<< ", Humidity: " << humidity 
+				<< ", Pressure" << pressure << ")! ";
 	this->temperature = temperature;
 	this->humidity = humidity;
 	this->pressure = pressure;

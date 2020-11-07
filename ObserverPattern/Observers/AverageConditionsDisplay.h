@@ -1,23 +1,25 @@
 #pragma once
 #include "IObserver.h"
 #include "IDisplay.h"
-#include "ISubject.h"
 
-class CurrentConditionsDisplay :
-	public IObserver, public IDisplay
+class ISubject;
+
+class AverageConditionsDisplay
+	:public IObserver, public IDisplay
 {
 public:
-	CurrentConditionsDisplay();
-	CurrentConditionsDisplay(ISubject* weatherData);
+	AverageConditionsDisplay();
+	AverageConditionsDisplay(ISubject* weatherData);
 	void update(float temperature, float humidity, float pressure) override;
 	std::string getDescription() override;
 	void display() override;
 	void removeFromObserving();
-
 private:
-	float temperature;
-	float humidity;
-	float pressure;
+	float totalTemperature;
+	float totalHumidity;
+	float totalPressure;
+	int countOfData;
 	ISubject* localWeatherData;
+
 };
 
