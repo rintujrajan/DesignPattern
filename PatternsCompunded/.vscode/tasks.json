@@ -1,0 +1,37 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "Build Patterns Compunded Example",
+            "command": "cl.exe",
+            "args": [
+                "/Zi",
+                "/EHsc",
+                "${cwd}\\*.cpp",
+                "${cwd}\\Ducks\\*.cpp",
+                "${cwd}\\Geese\\*.cpp",
+                "${cwd}\\Decorator\\*.cpp",
+                "${cwd}\\AbstractFactories\\*.cpp",
+                "${cwd}\\Composite\\*.cpp",
+                "${cwd}\\QuackTracker_Observer\\*.cpp",
+                "/Fe:",
+                "${fileDirname}\\.vscode\\Build\\PatternsCompunded.exe",
+                "/Fo:",
+                "${fileDirname}\\.vscode\\Build\\",
+                "/Fd:",
+                "${fileDirname}\\.vscode\\Build\\"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
