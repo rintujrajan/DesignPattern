@@ -15,7 +15,7 @@ IPizza* PizzaStore::orderPizza(std::string pizzaType)
 	However keeping it here would mean that the class would be open to further change if the pizza types change
 	Hence we remove the code which is likely to change from here to the SimplePizzaFactory
 	The task of creating pizza objects is delegated to the SimplePizzaFactory
-	This also is alligned to the Single Responsibility of SOLID principles wherein a class would be changed for only one reason
+	This also is aligned to the Single Responsibility of SOLID principles wherein a class would be changed for only one reason
 	*/
 	pizza = simplePizzaFactory.createPizza(pizzaType);
 
@@ -30,7 +30,7 @@ IPizza* PizzaStore::orderPizza(std::string pizzaType)
 	}
 	else
 	{
-		std::cout<<"Pizza could not be delieverd!\n";		
+		std::cout<<"Pizza could not be delivered!\n";		
 	}
 	
 	return pizza;

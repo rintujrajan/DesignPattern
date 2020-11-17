@@ -17,7 +17,7 @@
 		Abstract Factory Method - createPizza
 
 	Product classes:	
-	Parallelly there would be an abstract product class and concrete product classes derived from it. 
+	Parallely there would be an abstract product class and concrete product classes derived from it. 
 	The abstract product class pointer is used in the abstract creator class,
 	and later in concrete creator classes the concrete products/objects are created
 

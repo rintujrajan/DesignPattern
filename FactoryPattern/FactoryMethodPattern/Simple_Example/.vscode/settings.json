@@ -1,6 +1,5 @@
 {
     "files.associations": {
-        "cctype": "cpp",
         "cmath": "cpp",
         "concepts": "cpp",
         "cstddef": "cpp",
@@ -21,7 +20,6 @@
         "ostream": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
-        "string": "cpp",
         "system_error": "cpp",
         "tuple": "cpp",
         "type_traits": "cpp",
@@ -36,19 +34,6 @@
         "xstddef": "cpp",
         "xstring": "cpp",
         "xtr1common": "cpp",
-        "xutility": "cpp",
-        "thread": "cpp",
-        "chrono": "cpp",
-        "mutex": "cpp",
-        "ratio": "cpp",
-        "condition_variable": "cpp",
-        "deque": "cpp",
-        "stack": "cpp",
-        "vector": "cpp"
-    },
-    "cSpell.words": [
-        "Cheese",
-        "Parallelly",
-        "delieverd"
-    ]
+        "xutility": "cpp"
+    }
 }
