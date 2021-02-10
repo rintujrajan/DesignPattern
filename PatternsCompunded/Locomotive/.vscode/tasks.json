@@ -8,6 +8,10 @@
 			"args": [
 				"-g",
 				"${workspaceFolder}\\*.cpp",
+				"${workspaceFolder}\\Subjects\\*.cpp",
+				"${workspaceFolder}\\Sensors\\*.cpp",
+				"${workspaceFolder}\\Observers\\*.cpp",
+				"${workspaceFolder}\\Commands\\*.cpp",
 				"-o",
 				"${workspaceFolder}\\.vscode\\Build\\main.exe"
 			],

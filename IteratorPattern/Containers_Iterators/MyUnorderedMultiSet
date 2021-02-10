@@ -1,0 +1,145 @@
+#pragma once
+#include <list>
+#include <set>
+#include <algorithm>
+#include <initializer_list>
+
+namespace
+{
+    const int DEFAULT_BUCKETS = 10;
+}
+
+template <class MyUnorderedMultiSet>
+class MyUnorderedMultiSetIterator
+{
+public:
+    using ValueType  = typename MyUnorderedMultiSet::ValueType;
+    using PointerType = ValueType*;
+    using ReferenceType = ValueType&; 
+private:
+    int curHashTableIndex;
+    typename std::list<ValueType> curChain;
+    typename std::list<ValueType>::iterator curChainIterator;
+    typename std::list<ValueType>::iterator curChainIteratorEnd;
+    std::list<ValueType> *hashTable;
+    int bucketCount;
+public:
+    MyUnorderedMultiSetIterator(){};
+    MyUnorderedMultiSetIterator(std::list<ValueType> *hashTable, int bucketCount)
+    {
+        this->bucketCount = bucketCount;
+        this->hashTable = hashTable;
+        curHashTableIndex = -1;
+        getNextNonEmptyIndex();
+    }
+    void getNextNonEmptyIndex()
+    {
+        while(curHashTableIndex < bucketCount)
+        {
+            curHashTableIndex++;
+            std::list<ValueType> chain = hashTable[curHashTableIndex];
+            if(!chain.empty()) 
+            {
+                curChain = chain;
+                curChainIterator = curChain.begin();
+                return;
+            }
+        }
+    }
+    auto operator++()
+    {
+        if(curChainIterator != curChainIteratorEnd)
+        {
+            curChainIterator++;
+        }
+        else
+        {
+            getNextNonEmptyIndex();
+        }
+        return curChainIterator;
+    }
+
+    auto operator++(int)
+    {
+        typename std::list<ValueType>::iterator curChainIteratorSaved = curChainIterator;
+        curChainIterator++;
+        if(curChainIterator == curChain.end())
+        {
+            getNextNonEmptyIndex();
+        }
+        return curChainIteratorSaved;
+    }
+
+    ReferenceType operator*()
+    {
+        return *curChainIterator;
+    }
+
+};
+template <class Typ>
+class MyUnorderedMultiSet
+{
+public:
+    using ValueType  = Typ;
+    using Iterator = MyUnorderedMultiSetIterator<MyUnorderedMultiSet<Typ>>;
+private:
+    int bucketCount;
+    std::list<Typ> *hashTable;
+    int maxLoadFactor;
+    std::set<int> buckedPositionsUsed;
+public:
+    MyUnorderedMultiSet()
+    {
+        bucketCount = DEFAULT_BUCKETS;
+        hashTable = new std::list<Typ>[bucketCount];
+        maxLoadFactor = 1;
+    }
+
+    MyUnorderedMultiSet(std::initializer_list<Typ> il):MyUnorderedMultiSet()
+    {   
+        std::initializer_list<Typ>::iterator it;
+        for(it = il.begin(); it!= il.end();++it)
+        {
+            insert(*it);
+        }
+    }
+    
+    int hashFunction(const Typ& val)
+    {
+        std::hash<Typ> typ_hash;
+        int hashValue =  typ_hash(val);
+        return hashValue % bucketCount;
+    }
+
+    void insert( const Typ& val )
+    {
+        float curLoadFactor = (float)buckedPositionsUsed.size() / bucketCount;
+        if(curLoadFactor<1)
+        {
+            int positionToInsert = hashFunction(val);
+            std::list<Typ> chain = hashTable[positionToInsert];
+            chain.push_back(val);
+            hashTable[positionToInsert] = chain;
+            buckedPositionsUsed.insert(positionToInsert);
+        }
+        else
+        {
+            rehash();
+        }
+    }
+
+    inline constexpr int bucket_count()
+    {
+        return bucketCount;
+    } 
+
+    void rehash()
+    {
+        /* code */
+    }
+
+    Iterator begin()
+    {
+        return Iterator(hashTable, bucketCount); 
+    }
+};

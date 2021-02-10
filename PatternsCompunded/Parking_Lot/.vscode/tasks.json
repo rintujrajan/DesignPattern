@@ -8,6 +8,9 @@
 			"args": [
 				"-g",
 				"${workspaceFolder}\\*.cpp",
+				"${workspaceFolder}\\ParkingStrategy\\*.cpp",
+				// "${workspaceFolder}\\Beverages\\Condiments\\*.cpp",
+				// "${workspaceFolder}\\States\\*.cpp",
 				"-o",
 				"${workspaceFolder}\\.vscode\\Build\\main.exe"
 			],

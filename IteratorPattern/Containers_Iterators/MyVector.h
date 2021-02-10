@@ -1,39 +1,36 @@
 #pragma once
 #include <iostream>
-namespace
-{
-    const size_t DEFAULT_VEC_CAPACITY = 10;
-}
+#include <cstring>
 
 template <typename MyVector>
 class MyVectorIterator
 {
 public:
-    using ValueType  = typename MyVector::ValueType;
-    using PointerType = ValueType*;
-    using ReferenceType = ValueType&;
+    using ValueType = typename MyVector::ValueType;
+    using PointerType = ValueType *;
+    using ReferenceType = ValueType &;
 
 private:
     PointerType m_Ptr;
 
 public:
-    MyVectorIterator():m_Ptr(nullptr){};
-    MyVectorIterator(PointerType ptr):m_Ptr(ptr){};
+    MyVectorIterator() : m_Ptr(nullptr){};
+    MyVectorIterator(PointerType ptr) : m_Ptr(ptr){};
 
-    MyVectorIterator& operator++()
+    MyVectorIterator &operator++() //++it
     {
         m_Ptr++;
         return *this;
     }
 
-    MyVectorIterator operator++(int)
+    MyVectorIterator operator++(int) //it++
     {
         MyVectorIterator iter = *this;
         ++(*this);
         return iter;
     }
 
-    MyVectorIterator& operator--()
+    MyVectorIterator &operator--()
     {
         m_Ptr--;
         return *this;
@@ -41,14 +38,14 @@ public:
 
     MyVectorIterator operator--(int)
     {
-        MyVectorIterator = *this;
+        MyVectorIterator iter = *this;
         --(*this);
-        return MyVectorIterator;
+        return iter;
     }
 
     ReferenceType operator[](int index)
     {
-        return *(m_Ptr + index); 
+        return *(m_Ptr + index);
     }
 
     PointerType operator->()
@@ -61,70 +58,72 @@ public:
         return *m_Ptr;
     }
 
-    bool operator==(const MyVectorIterator& other) const
+    bool operator==(const MyVectorIterator &other) const
     {
         return m_Ptr == other.m_Ptr;
     }
-    bool operator!=(const MyVectorIterator& other) const
+    bool operator!=(const MyVectorIterator &other) const
     {
-        return !(*this == other);
+        // return !(*this == other);
+        return m_Ptr != other.m_Ptr;
     }
-
 };
 
-template<class Typ>
+template <class Typ>
 class MyVector
 {
 public:
-    using ValueType  = Typ;
+    using ValueType = Typ;
     using Iterator = MyVectorIterator<MyVector<Typ>>;
+
 private:
     Typ *arr;
     size_t curSize;
     size_t curCapacity;
+
 public:
-    MyVector():curSize(0), curCapacity(DEFAULT_VEC_CAPACITY)
+    MyVector() : curSize(0), curCapacity(0)
     {
         arr = new Typ[curCapacity];
     }
-    MyVector(size_t capacity):curSize(0), curCapacity(capacity)
+    MyVector(size_t capacity) : curSize(0), curCapacity(capacity)
     {
         arr = new Typ[curCapacity];
     }
     ~MyVector()
     {
-        delete [] arr;
+        delete[] arr;
     }
     void push_back(Typ data)
     {
-        if(curCapacity < (curSize+2))
+        if (curSize == curCapacity)
         {
             // re-allocate memory and copy the contents
-            std::cout<<"Reallocating memory since curCapacity : "<<curCapacity
-                    << " curSize : "<< curSize <<"(Index starts at 0)\n";
-            size_t curCapacityUsed = curSize+1;
-            Typ *tempArr = new Typ[curCapacityUsed];
-            std::memcpy(tempArr, arr , curCapacityUsed*sizeof(Typ));
-            delete [] arr;
-            curCapacity = curCapacityUsed + DEFAULT_VEC_CAPACITY;
-            std::cout<<"Increasing capacity from "<< curCapacityUsed << " to "<<curCapacity<<"\n";
-            arr = new Typ[curCapacity];
-            std::memcpy(arr, tempArr, curCapacityUsed*sizeof(Typ));
-            delete [] tempArr;   
-            tempArr = nullptr;  
+            std::cout << "Reallocating memory since CurCapacity : " << curCapacity
+                      << " and CurSize : " << curSize << "\n";
+            Typ *tempArr = new Typ[curSize];
+            std::memcpy(tempArr, arr, curSize * sizeof(Typ));
+            delete[] arr;
+            size_t newCapacity = curCapacity == 0 ? 1 : curCapacity * 2;
+            std::cout << "Increasing capacity from " << curCapacity << " to " << newCapacity << "\n";
+            arr = new Typ[newCapacity];
+            std::memcpy(arr, tempArr, curSize * sizeof(Typ));
+            delete[] tempArr;
+            tempArr = nullptr;
+            curCapacity = newCapacity;
         }
         arr[curSize] = data;
         curSize++;
     }
-    Typ& operator[](int pos)
+    Typ &operator[](int pos)
     {
         return arr[pos];
     }
     void clear()
     {
         curSize = 0;
-        curCapacity = DEFAULT_VEC_CAPACITY;
-        delete [] arr;
+        curCapacity = 0;
+        delete[] arr;
         arr = new Typ[curCapacity];
     }
     inline size_t size()
@@ -142,4 +141,3 @@ public:
         return Iterator(arr + curSize);
     }
 };
-
