@@ -31,12 +31,12 @@ int main()
     std::shared_ptr<GeoPosMonitor> geoPosMonitor = std::make_shared<GeoPosMonitor>();
 
     // We create shared pointer for the DataUploader observer and then register it to the two concrete subjects
-    std::shared_ptr<IObserver> dataUploader = std::make_shared<DataUploader>(speedMonitor.get(), geoPosMonitor.get());
+    std::shared_ptr<IObserver> dataUploader = std::make_shared<DataUploader>();
     speedMonitor->registerObserver(dataUploader);
     geoPosMonitor->registerObserver(dataUploader);
 
     // We create shared pointer for the Speaker observer and then register it to the concrete subject - SpeedMonitor
-    std::shared_ptr<IObserver> speaker = std::make_shared<Speaker>(speedMonitor.get());
+    std::shared_ptr<IObserver> speaker = std::make_shared<Speaker>();
     speedMonitor->registerObserver(speaker);
 
     // We here try to simulate a speed sensor updating speed data which would trigger to the Subject-SpeedMonitor to notify it's observers
@@ -66,7 +66,7 @@ int main()
         speedSensor.speedChangedTo(speed); //this can be some external api call as well
     }
     std::this_thread::sleep_for(std::chrono::seconds(3));
-
+    Controller::getControllerInstance().stopLoop();
     threadToExecuteCommands.join();
     std::cin.get();
 }

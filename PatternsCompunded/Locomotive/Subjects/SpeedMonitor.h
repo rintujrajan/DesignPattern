@@ -10,5 +10,5 @@ private:
 public:
     void speedChangedTo(int speed);
     inline int getCurrentSpeed() { return curSpeed; }
-    void notifyEachObserver(const std::shared_ptr<IObserver> &observer) override;
+    void notifyEachObserver() override;
 };

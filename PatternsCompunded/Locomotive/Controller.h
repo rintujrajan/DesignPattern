@@ -8,12 +8,14 @@ class Controller
 private:
     std::queue<std::unique_ptr<ICommand>> commandsQueue;
     static Controller controllerInstance;
+    bool continueLoop;
 
 private:
-    Controller() = default;
+    Controller();
 
 public:
     void executeQueuedCommands();
     static Controller &getControllerInstance();
     void addCommandToBeExecuted(std::unique_ptr<ICommand> command);
+    void stopLoop();
 };

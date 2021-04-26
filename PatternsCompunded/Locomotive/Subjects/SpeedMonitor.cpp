@@ -4,10 +4,14 @@
 void SpeedMonitor::speedChangedTo(int speed)
 {
     curSpeed = speed;
-    notifyAllObservers();
+    notifyEachObserver();
 }
 
-void SpeedMonitor::notifyEachObserver(const std::shared_ptr<IObserver> &observer)
+void SpeedMonitor::notifyEachObserver()
 {
-    observer->notify(this);
+    for (auto &&observer : observersSet)
+    {
+        // each observer is notified from the concrete subjects, so that the "this" pointer of the concrete subjects can be passed
+        observer->notify(this);
+    }
 }

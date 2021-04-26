@@ -2,19 +2,11 @@
 #include <iostream>
 #include "../Subjects/SpeedMonitor.h"
 
-Speaker::Speaker(SpeedMonitor *speedMonitor)
-    : localSpeedMonitor(speedMonitor)
-{
-}
-
-Speaker::~Speaker()
-{
-}
-
 void Speaker::notify(Subject *subject)
 {
-    if (subject == localSpeedMonitor) //we match the pointer. we cannot use it to get the concrete subjects data
+    SpeedMonitor *speedMonitor = dynamic_cast<SpeedMonitor *>(subject);
+    if (speedMonitor)
     {
-        std::cout << "Speaker::update - new speed :" << localSpeedMonitor->getCurrentSpeed() << "\n";
+        std::cout << "Speaker::update - new speed :" << speedMonitor->getCurrentSpeed() << "\n";
     }
 }

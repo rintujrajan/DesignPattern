@@ -4,6 +4,9 @@
 #include <chrono>
 
 Controller Controller::controllerInstance;
+
+Controller::Controller() : continueLoop(true) {}
+
 Controller &Controller::getControllerInstance()
 {
     return controllerInstance;
@@ -11,7 +14,7 @@ Controller &Controller::getControllerInstance()
 
 void Controller::executeQueuedCommands()
 {
-    while (true)
+    while (continueLoop)
     {
         while (!commandsQueue.empty())
         {
@@ -25,4 +28,9 @@ void Controller::executeQueuedCommands()
 void Controller::addCommandToBeExecuted(std::unique_ptr<ICommand> command)
 {
     commandsQueue.push(std::move(command));
+}
+
+void Controller::stopLoop()
+{
+    continueLoop = false;
 }

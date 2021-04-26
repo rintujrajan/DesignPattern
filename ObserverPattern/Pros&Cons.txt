@@ -1,0 +1,13 @@
+The Observer pattern provides you with the following advantages:
+
+1. It supports the principle of loose coupling between objects that interact with each other
+2. It allows sending data to other objects effectively without any change in the Subject or Observer classes
+3. Observers can be added/removed at any point in time
+
+
+
+The following are the disadvantages of the Observer pattern:
+
+1. The Observer interface has to be implemented by ConcreteObserver, which involves inheritance. There is no option for composition, as the Observer interface can be instantiated.
+2. If not correctly implemented, the Observer can add complexity and lead to inadvertent performance issues.
+3. In software application, notifications can, at times, be undependable and result in race conditions or inconsistency.

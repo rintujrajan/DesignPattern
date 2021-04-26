@@ -5,28 +5,22 @@
 #include "../Commands/UploadSpeedCommand.h"
 #include "../Controller.h"
 
-DataUploader::DataUploader(SpeedMonitor *speedMonitor, GeoPosMonitor *geoPosMonitor)
-    : localSpeedMonitor(speedMonitor), localGeoPosMonitor(geoPosMonitor)
-{
-}
-
-DataUploader::~DataUploader()
-{
-}
-
 void DataUploader::notify(Subject *subject)
 {
-    if (subject == localSpeedMonitor) //we match the pointer. we cannot use it to get the concrete subjects data
+    SpeedMonitor *speedMonitor = dynamic_cast<SpeedMonitor *>(subject);
+    if (speedMonitor)
     {
-        std::cout << "DataUploader::update - new speed :" << localSpeedMonitor->getCurrentSpeed() << "\n";
+        std::cout << "DataUploader::update - new speed :" << speedMonitor->getCurrentSpeed() << "\n";
         std::unique_ptr<UploadSpeedCommand> uploadSpeedCommand = std::make_unique<UploadSpeedCommand>();
-        uploadSpeedCommand->setSpeed(localSpeedMonitor->getCurrentSpeed());
+        uploadSpeedCommand->setSpeed(speedMonitor->getCurrentSpeed());
         Controller::getControllerInstance().addCommandToBeExecuted(std::move(uploadSpeedCommand));
     }
-    else if (subject == localGeoPosMonitor)
+
+    GeoPosMonitor *geoPosMonitor = dynamic_cast<GeoPosMonitor *>(subject);
+    if (geoPosMonitor)
     {
         std::cout << "DataUploader::update - "
-                  << "new latitude : " << localGeoPosMonitor->getCurrentLatitude() << " ~~ "
-                  << "new longitude : " << localGeoPosMonitor->getCurrentLongitude() << "\n";
+                  << "new latitude : " << geoPosMonitor->getCurrentLatitude() << " ~~ "
+                  << "new longitude : " << geoPosMonitor->getCurrentLongitude() << "\n";
     }
 }

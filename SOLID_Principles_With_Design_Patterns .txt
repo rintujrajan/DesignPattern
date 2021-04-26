@@ -1,0 +1,9 @@
+1. Single Responsibility
+	- Composite Pattern
+2. Open Close Principle
+	- Observer Pattern
+	- Decorator Pattern
+3. Liskov substitution principle
+4. Interface Segregation
+5. Dependency Inversion
+	- Factory Method
